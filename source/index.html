@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Автомобильный кинотеатр - "Кинодром"</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" type="text/css" />
+    
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../bower_components/ion.rangeslider/css/ion.rangeSlider.css" type="text/css" />
+    <link rel="stylesheet" href="../bower_components/ion.rangeslider/css/ion.rangeSlider.skinFlatMy.css" type="text/css" />
+    <link rel="stylesheet" href="../bower_components/fancyBox/source/jquery.fancybox.css" type="text/css" media="screen" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="container"><!-- HEADER -->
+        <div id="headerTop" class="row bg">
+                  
+
+                  <nav>
+                    <div class="navbar-header">
+                      <a href="#"><img id="logo" src="images/kinodromlogo3.png"></img></a>
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigator" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="btnmenu">Open Menu</span>
+                      </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navigator">
+                    <ul class="nav navbar-nav">
+                      <li><a href="#">Главная</a></li>
+                      <li><a href="#">Афиша</a></li>
+                      <li><a href="#">Акции</a></li>
+                      <li><a href="#">Меню Бара</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Информация<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">О нас</a></li>
+                          <li><a href="#">Контакты</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><a href="#">Рассылка афиши</a></li>
+                          <li role="separator" class="divider"></li>
+                          <li><a href="#">Фото</a></li>
+                          <li><a href="#">Отзывы</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                    </div>
+                  </nav>
+        </div>
+        <div id="soon">
+            <h2 class="text-center bgTitle">Скоро на экранах</h2>
+            <div class="new bg">
+              <div class="col-xs-6 col-lg-4 text-center bg no-padding">
+              <div class="item">
+                <div class="image">
+                  <img src="movies/1/poster.jpg" alt="Люди Икс: Апокалипсис">
+                </div>
+                <div class="calendar">
+                    <h4 class="text-center">Люди Икс: Апокалипсис</h4>
+                    <div class="calendar-group">
+                      <div class="Date-day col-lg-12 col-md-12">22</div>
+                      <div class="Date-month col-lg-12 col-md-12">Апреля</div>
+                    </div>
+                    
+                </div>
+              </div>
+            </div>
+              <div class="col-xs-6 col-lg-4 text-center bg no-padding">
+              <div class="item">
+                <div class="image">
+                  <img src="movies/2/poster.jpg" alt="Люди Икс: Апокалипсис">
+                </div>
+                <div class="calendar">
+                    <h4 class="text-center">Бэтмен против Супермена: На заре справедливости</h4>
+                    <div class="calendar-group">
+                        <div class="Date-day col-lg-12 col-md-12">22</div>
+                      <div class="Date-month col-lg-12 col-md-12">Апреля</div>
+                    </div>
+                    
+                </div>
+              </div>
+            </div>
+              <div class="col-lg-4 visible-lg-block text-center bg">
+            <div class="item">
+                <div class="image">
+                  <img src="movies/1/poster.jpg" alt="Люди Икс: Апокалипсис">
+                </div>
+                <div class="calendar">
+                    <h4 class="text-center">Люди Икс: Апокалипсис</h4>
+                    <div class="calendar-group">
+                      <div class="Date-day col-lg-12 col-md-12">22</div>
+                      <div class="Date-month col-lg-12 col-md-12">Апреля</div>
+                    </div>
+                    
+                </div>
+              </div>
+            </div>
+            </div>
+            
+            
+        </div>
+    </header><!-- /HEADER -->
+    <main><!-- MAIN -->
+      <div class="container">
+        <h2 class="text-center bgTitle">Сейчас в кино</h2>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div id="slider" class="bg">
+          <section id="filter" class="col-lg-offset-3 col-lg-6">
+                <section class="hall text-center">
+                  <input type="radio" name="radiog_dark" id="all" class="css-checkbox" checked="checked"/>
+                  <label for="all" class="css-label radGroup2 width50">Все</label>
+
+                  <input type="radio" name="radiog_dark" id="evrobazar" class="css-checkbox" />
+                  <label for="evrobazar" class="css-label radGroup2 width50">Евробазар</label>
+
+                  <input type="radio" name="radiog_dark" id="acuracenter" class="css-checkbox" />
+                  <label for="acuracenter" class="css-label radGroup2 width100">Акура центр</label>
+                </section>
+                <section class="time">
+                  <div class="col-lg-6"><input type="text" id="day" name="day" value=""/></div>
+                  <div class="col-lg-6"><input type="text" id="seans" name="seans" value=""/></div>
+                  
+                  
+                </section>
+          </section>
+          <div id="scrolling" class="col-lg-12">
+            <ul></ul>
+          </div>
+        </div>
+        </div>
+        
+      </div>
+      
+    </main><!-- /MAIN -->
+    <section class="details">
+            <div class="container">
+        <div class="row"><h2 class="text-center bgTitle"></h2></div>
+      </div>
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 bg">
+            <div class="row">
+              <div class="col-lg-4 poster">
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <button type="button" class="btn btn-danger">Купить Билет</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="col-lg-10">
+                <div class="row pad-top">
+                <table>
+                  <tbody>
+                    <tr class="board_seance">
+                      <td class="bi_title">сеансы:</td><td></td>
+                    </tr>
+                    <tr>
+                      <td class="bi_title">год:</td><td></td>
+                    </tr>
+                    <tr>
+                      <td class="bi_title">страна:</td><td></td>
+                    </tr>
+                    <tr>
+                      <td class="bi_title">жанр:</td><td></td>
+                    </tr>
+                    <tr>
+                      <td class="bi_title">бюджет:</td><td></td>
+                    </tr>
+                    <tr>
+                      <td class="bi_title">время:</td><td></td>
+                    </tr>
+                    <tr>
+                      <td class="bi_title">перевод:</td><td></td>
+                    </tr>
+                    <tr>
+                      <td class="bi_title">В ролях:</td><td></td>
+                    </tr>
+                    <tr>
+                      <td colspan=2 class="bi_about"></td>
+                    </tr>
+                    <tr>
+                      <td colspan=2 class="bi_trailer text-center"></td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                
+                
+              </div>
+              <div class="col-lg-2 text-center">
+                <div class="row images"></div>
+                  </div>
+            </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-6 text-center">
+            Powered by Mr.ArtemSky & Mikola Prokopenko © 2016
+          </div>
+          <div class="col-xs-12 col-md-6 text-center">
+            icons
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    
+    <!--Jquery-->
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <!--Bootstrap-->
+    <!--<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
+    <script type="text/javascript" src="js/btdd.js"></script>
+    <!--ItemSlide-->
+    <script type="text/javascript" src="../bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="../bower_components/itemslide/src/itemslide.js"></script>
+    <script type="text/javascript" src="../bower_components/itemslide/src/slideout.js"></script>
+    <!--RageSlider-->
+    <script type="text/javascript" src="../bower_components/ion.rangeslider/js/ion.rangeSlider.js"></script>
+    <!--bPopup-->
+    <script type="text/javascript" src="../bower_components/bPopup/jquery.bpopup.js"></script>
+    <!--FancyBox-->
+    <script type="text/javascript" src="../bower_components/fancyBox/source/jquery.fancybox.js"></script>
+    <!--App-->
+    <script type="text/javascript" src="js/details.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+    <script type="text/javascript" src="js/rangeslider.js"></script>
+    <script type="text/javascript" src="js/fancy.js"></script>
+  </body>
+</html>

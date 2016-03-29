@@ -1,0 +1,18 @@
+.table {
+  margin-bottom: 0 !important;
+  position: relative; }
+  .table .va {
+    vertical-align: middle !important;
+    border: none !important;
+    position: relative; }
+  .table .th {
+    background-color: #999;
+    width: 300px;
+    height: 400px;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0 !important; }
+    .table .th > img {
+      height: 100%; }
+
+/*# sourceMappingURL=table.css.map */

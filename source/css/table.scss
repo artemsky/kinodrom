@@ -1,0 +1,29 @@
+// .table    { display: table }
+// .tr       { display: table-row }
+// .thead    { display: table-header-group }
+// .tbody    { display: table-row-group }
+// .tfoot    { display: table-footer-group }
+// .col      { display: table-column }
+// .colgroup { display: table-column-group }
+.table   { 
+    margin-bottom: 0 !important;
+    position: relative;
+    .va{
+        vertical-align: middle !important;
+        border: none !important;
+        position: relative;
+    }
+    .th{
+        background-color: #999;
+		width: 300px;
+		height: 400px;
+		display: inline-block;
+		overflow: hidden;
+		padding: 0 !important;
+        >img{
+            height: 100%;
+        }
+    }
+    
+}
+//.caption  { display: table-caption }
