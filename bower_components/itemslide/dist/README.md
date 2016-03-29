@@ -1,1 +1,0 @@
-#### Use itemslide.min.js for jQuery Version or itemslide.vanilla.min.js for Vanilla Version.
