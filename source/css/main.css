@@ -75,7 +75,6 @@ main #slider {
     main #slider {
       height: 55rem !important; } }
   main #slider #scrolling {
-    /* Carousel Frame */
     overflow: hidden;
     height: 35rem; }
   main #slider ul {
@@ -230,5 +229,109 @@ footer .row {
   .btnmenu {
     color: #fff;
     font-size: 2rem; } }
+.buyTickets {
+  width: 80%; }
+  @media (max-width: 768px) {
+    .buyTickets {
+      width: 100%; } }
+
+#tickets .head {
+  height: 200px; }
+  #tickets .head ul {
+    padding: 1rem 0; }
+    #tickets .head ul li {
+      padding-right: 2rem; }
+  #tickets .head .info li:nth-child(even) {
+    font-weight: 600; }
+#tickets .height100 {
+  height: 100%; }
+#tickets .poster {
+  display: inline-block;
+  height: 100%;
+  float: right; }
+#tickets .types li {
+  padding-left: 25px; }
+  #tickets .types li:before {
+    content: '';
+    display: inline-block;
+    height: 60px;
+    width: 31px;
+    background-image: url("../images/cars.png");
+    background-size: cover;
+    margin-bottom: -20px;
+    padding-left: 20px; }
+  #tickets .types li.sold:before {
+    background-position-x: -92px; }
+  #tickets .types li.cheap:before {
+    background-position-x: 0; }
+  #tickets .types li.exp:before {
+    background-position-x: -62px; }
+#tickets .parking {
+  padding-top: 1rem;
+  display: inline-block;
+  width: 100%; }
+  #tickets .parking .screen {
+    background-image: url("../images/screen.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100px;
+    margin-bottom: 2rem; }
+  #tickets .parking .cars .car {
+    display: inline-block;
+    height: 50px;
+    width: 26px;
+    background-image: url("../images/cars.png");
+    background-size: cover; }
+    #tickets .parking .cars .car:hover {
+      transform: scale(1.2); }
+  #tickets .parking .cars .sold {
+    background-position-x: -77px; }
+  #tickets .parking .cars .cheap {
+    background-position-x: 0; }
+  #tickets .parking .cars .exp {
+    background-position-x: -51px; }
+  #tickets .parking .cars .selected {
+    transform: scale(1.2);
+    background-position-x: -26px; }
+  #tickets .parking .cars .nohover {
+    pointer-events: none; }
+#tickets .order {
+  display: none; }
+#tickets .checkout {
+  padding: 10px; }
+  #tickets .checkout .ticket-container {
+    display: inline-block;
+    background: #758181;
+    padding: 5px 5px 0 5px;
+    color: #fff; }
+    #tickets .checkout .ticket-container .ticket {
+      display: inline-block;
+      border: 2px dashed #000;
+      padding: 4px 0; }
+      #tickets .checkout .ticket-container .ticket h6 {
+        margin: 2px; }
+      #tickets .checkout .ticket-container .ticket .name {
+        float: left;
+        text-align: right;
+        padding: 0 2px 0 5px; }
+      #tickets .checkout .ticket-container .ticket .type {
+        float: left;
+        text-align: left;
+        padding: 0 2px; }
+        #tickets .checkout .ticket-container .ticket .type h6 {
+          font-weight: 600; }
+  #tickets .checkout span {
+    display: inline-block;
+    font-size: 10rem;
+    line-height: 10rem; }
+  #tickets .checkout button {
+    text-transform: uppercase;
+    font-size: 3rem;
+    line-height: 3.4rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    width: 100%;
+    background-color: #FD4A00;
+    border-color: #FD4A00; }
 
 /*# sourceMappingURL=main.css.map */

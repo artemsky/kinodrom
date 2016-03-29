@@ -8,10 +8,10 @@
     <div class="col-lg-12 bg">
       <div class="row">
         <div class="col-lg-4 poster">
-          <img src="movies/{MovieID}/poster.jpg" alt="{Title}" class="img-responsive center-block">';
+          <img src="movies/{MovieID}/poster.jpg" alt="{Title}" class="img-responsive center-block">
           <div class="row">
             <div class="col-lg-12 text-center">
-              <button type="button" class="btn btn-danger" movie-id="{MovieID}">Купить Билет</button>
+              <button type="button" class="btn btn-danger" movie-id="{MovieID}" data-toggle="modal" data-target="#tiketsModal">Купить Билет</button>
             </div>
           </div>
         </div>
@@ -22,7 +22,7 @@
                 <tbody>
                   <tr class="board_seance">
                     <td class="bi_title">сеансы:</td>
-                    <td>{SessionStart}</td>
+                    <td>C {SessionStarts}</td>
                   </tr>
                   <tr>
                     <td class="bi_title">год:</td>

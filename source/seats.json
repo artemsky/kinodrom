@@ -1,0 +1,316 @@
+{
+    "prices":{
+        "lightPrice": 100,
+        "heavyPrice": 120
+    },
+    "seats":[
+        {
+            "row": 1,
+            "seat": 1,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 1,
+            "seat": 2,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 1,
+            "seat": 3,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 1,
+            "seat": 4,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 1,
+            "seat": 5,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 1,
+            "seat": 6,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 1,
+            "seat": 7,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 1,
+            "seat": 8,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 2,
+            "seat": 1,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 2,
+            "seat": 2,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 2,
+            "seat": 3,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 2,
+            "seat": 4,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 2,
+            "seat": 5,
+            "type": "light",
+            "price": 100,
+            "isFree": false
+        },
+        {
+            "row": 2,
+            "seat": 6,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 2,
+            "seat": 7,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 2,
+            "seat": 8,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 2,
+            "seat": 9,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 2,
+            "seat": 10,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 3,
+            "seat": 1,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 3,
+            "seat": 2,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 3,
+            "seat": 3,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 3,
+            "seat": 4,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 3,
+            "seat": 5,
+            "type": "light",
+            "price": 100,
+            "isFree": false
+        },
+        {
+            "row": 3,
+            "seat": 6,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 3,
+            "seat": 7,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 3,
+            "seat": 8,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 3,
+            "seat": 9,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 3,
+            "seat": 10,
+            "type": "light",
+            "price": 100,
+            "isFree": true
+        },
+        {
+            "row": 3,
+            "seat": 11,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 3,
+            "seat": 12,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 4,
+            "seat": 1,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 4,
+            "seat": 2,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 4,
+            "seat": 3,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 4,
+            "seat": 4,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 4,
+            "seat": 5,
+            "type": "heavy",
+            "price": 120,
+            "isFree": false
+        },
+        {
+            "row": 4,
+            "seat": 6,
+            "type": "heavy",
+            "price": 120,
+            "isFree": false
+        },
+        {
+            "row": 4,
+            "seat": 7,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 4,
+            "seat": 8,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 4,
+            "seat": 9,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 4,
+            "seat": 10,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 4,
+            "seat": 11,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 4,
+            "seat": 12,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 4,
+            "seat": 13,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        },
+        {
+            "row": 4,
+            "seat": 14,
+            "type": "heavy",
+            "price": 120,
+            "isFree": true
+        }
+    ]
+}

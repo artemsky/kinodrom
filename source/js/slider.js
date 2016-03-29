@@ -27,15 +27,11 @@ $(document).ready(function () {
         });
         li = carousel.find("li");
         carousel.gotoSlide(Math.floor(li.length/2));
-    }).fail(function(a,b,c,d){
-        console.log(a);
-        console.log(b);
-        console.log(c);
-        console.log(d);
     });
     
     carousel.on("changeActiveIndex", function(e){
         var id = li ? li.eq(carousel.getActiveIndex()).attr("movie-id") : false;
+        TicketsReset();
         LoadData(id);
         
     });
