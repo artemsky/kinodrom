@@ -12,6 +12,8 @@ $(".details").delegate("button", "click", function(){
     var id = $(this).attr("movie-id");
     T.find(".poster").attr("src", "movies/"+view[id].data.MovieID+"/poster.jpg");
     T.find(".title").text(view[id].data.Title);
+    T.find(".session").text(view[id].data.SessionStarts + " " + $("#slider li[class=itemslide-active] .session").text());
+    T.find(".place").text($("#slider li[class=itemslide-active] .title").text());
     
     
     $.getJSON("seats.json").done(function(data){

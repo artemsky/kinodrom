@@ -148,71 +148,7 @@
       
     </main><!-- /MAIN -->
     <section class="details">
-            <div class="container">
-        <div class="row"><h2 class="text-center bgTitle"></h2></div>
-      </div>
-      
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 bg">
-            <div class="row">
-              <div class="col-lg-4 poster">
-              <div class="row">
-                <div class="col-lg-12 text-center">
-                  <button type="button" class="btn btn-danger">Купить Билет</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-8">
-              <div class="col-lg-10">
-                <div class="row pad-top">
-                <table>
-                  <tbody>
-                    <tr class="board_seance">
-                      <td class="bi_title">сеансы:</td><td></td>
-                    </tr>
-                    <tr>
-                      <td class="bi_title">год:</td><td></td>
-                    </tr>
-                    <tr>
-                      <td class="bi_title">страна:</td><td></td>
-                    </tr>
-                    <tr>
-                      <td class="bi_title">жанр:</td><td></td>
-                    </tr>
-                    <tr>
-                      <td class="bi_title">бюджет:</td><td></td>
-                    </tr>
-                    <tr>
-                      <td class="bi_title">время:</td><td></td>
-                    </tr>
-                    <tr>
-                      <td class="bi_title">перевод:</td><td></td>
-                    </tr>
-                    <tr>
-                      <td class="bi_title">В ролях:</td><td></td>
-                    </tr>
-                    <tr>
-                      <td colspan=2 class="bi_about"></td>
-                    </tr>
-                    <tr>
-                      <td colspan=2 class="bi_trailer text-center"></td>
-                    </tr>
-                  </tbody>
-                </table>
-                </div>
-                
-                
-              </div>
-              <div class="col-lg-2 text-center">
-                <div class="row images"></div>
-                  </div>
-            </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
+
     </section>
     
     <footer>
@@ -222,7 +158,8 @@
             Powered by Mr.ArtemSky & Mikola Prokopenko © 2016
           </div>
           <div class="col-xs-12 col-md-6 text-center">
-            icons
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-film-modal-lg">ADD FILM</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-seans-modal-lg">ADD SEANS</button>
           </div>
         </div>
       </div>
@@ -283,9 +220,115 @@
     </div>
   </div>
 </div>
+
+<!--MODALADD-->
+<div class="modal fade bs-film-modal-lg" tabindex="-1" role="dialog" aria-labelledby="film">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form id="addfilmform">
+  <div class="form-group">
+    <label for="Title">Название фильма</label>
+    <input type="text" class="form-control" id="Title" placeholder="Название фильма">
+  </div>
+  <div class="form-group">
+    <label for="Year">Год</label>
+    <input type="text" class="form-control" id="Year" placeholder="Год">
+  </div>
+  <div class="form-group">
+    <label for="Country">Страна</label>
+    <input type="text" class="form-control" id="Country" placeholder="Страна">
+  </div>
+  <div class="form-group">
+    <label for="Genre">Жанр</label>
+    <input type="text" class="form-control" id="Genre" placeholder="Жанр">
+  </div>
+  <div class="form-group">
+    <label for="Budget">Бюджет</label>
+    <input type="text" class="form-control" id="Budget" placeholder="Бюджет">
+  </div>
+  <div class="form-group">
+    <label for="Time">Длительность</label>
+    <input type="text" class="form-control" id="Time" placeholder="Длительность">
+  </div>
+  <div class="form-group">
+    <label for="Lang">Перевод</label>
+    <input type="text" class="form-control" id="Lang" placeholder="Перевод">
+  </div>
+  <div class="form-group">
+    <label for="Actors">Актеры</label>
+    <input type="text" class="form-control" id="Actors" placeholder="Актеры">
+  </div>
+  <div class="form-group">
+    <label for="About">О фильме</label>
+    <textarea class="form-control" rows="3" placeholder="О фильме" id="About"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="Video">Видео на youtube</label>
+    <input type="text" class="form-control" id="Video" placeholder="https://www.youtube.com/watch?v=*********">
+  </div>
+  <!--<div class="form-group">-->
+  <!--  <label for="poster">Постер</label>-->
+  <!--  <input type="file" id="poster">-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+  <!--  <input type="file" id="img1">-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+  <!--  <input type="file" id="img2">-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+  <!--  <input type="file" id="img3">-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+  <!--  <input type="file" id="img4">-->
+  <!--</div>-->
+  <!--<div class="form-group">-->
+  <!--  <input type="file" id="img5">-->
+  <!--</div>-->
+  <button type="submit" id="addfilm" class="btn btn-default">Submit</button>
+</form>
+    </div>
+  </div>
+</div>
+
+<!--MODALADDSEANS-->
+<div class="modal fade bs-seans-modal-lg" tabindex="-1" role="dialog" aria-labelledby="addseans">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <form id="addfilmform">
+  <div class="form-group">
+    <label for="seansFilms">Фильм</label>
+    <select class="form-control seansFilms">
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="seansHalls">Зал</label>
+    <select class="form-control seansHalls">
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="Date">Дата</label>
+    <input type="date" class="form-control" id="Date" placeholder="Дата">
+  </div>
+  <div class="form-group">
+    <label for="Time">Time</label>
+    <input type="text" class="form-control" id="Time" placeholder="Время">
+  </div>
+  <div class="form-group">
+    <label for="Price">Цена</label>
+    <input type="text" class="form-control" id="Price" placeholder="Цена">
+  </div>
+
+  <button type="submit" id="addseans" class="btn btn-default">Submit</button>
+</form>
+    </div>
+  </div>
+</div>
     
     <!--Jquery-->
     <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <!--Lodash-->
+    <script type="text/javascript" src="../bower_components/lodash/dist/lodash.core.js"></script>
     <!--Bootstrap-->
     <!--<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
     <script type="text/javascript" src="../bower_components/bootstrap/js/collapse.js"></script>
@@ -305,5 +348,6 @@
     <script type="text/javascript" src="js/rangeslider.js"></script>
     <script type="text/javascript" src="js/fancy.js"></script>
     <script type="text/javascript" src="js/tickets.js"></script>
+    <script type="text/javascript" src="js/addmovie.js"></script>
   </body>
 </html>

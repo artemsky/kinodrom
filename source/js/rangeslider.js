@@ -20,7 +20,13 @@ var Month = [
         "Пт", 
         "Сб", 
         "Вск"
-    ];
+    ],
+    SeanseValues = [
+        "19:30", "20:00", "20:30",
+        "21:00", "21:30", "22:00",
+        "22:30", "23:00", "23:30",
+        "0:00", "0:30", "1:00", "1:30"
+        ];
 
 function getDays(){
     var date = new Date(),
@@ -42,23 +48,82 @@ function daysInMonth(day) {
     return day;
 }
 
+var SeansBetween = {
+    date: 0,
+    fromTime: SeanseValues[0],
+    toTime: SeanseValues[SeanseValues.length-1],
+    fromUTC: function(){
+        return this.getDate(this.fromTime);
+    },
+    toUTC: function(){
+        return this.getDate(this.toTime);
+    },
+    timeConvert:function(time){
+        var times = time.split(":");
+        return (parseInt(times[1], 10) + (parseInt(times[0], 10)* 60))*60;
+    },
+    getDate: function(time){
+        var date = Date.parse(this.date);
+        var UTCtime = this.timeConvert(time);
+        if(UTCtime < 21600)
+            date = date + 86400*1000;
+        return date + UTCtime*1000;
+    },
+    id:{},
+    flag: true
+};
+
+function getFilms(){
+
+    var utc;
+    var id = {};
+    for(var i in view){
+        for(var s in view[i].data.Sessions){
+            utc = view[i].data.Sessions[s].UTC;
+            if(utc <= SeansBetween.toUTC() && utc >= SeansBetween.fromUTC()){
+                try{
+                    id[i].push(s);
+                }catch(err){
+                    id[i] = [];
+                    id[i].push(s);
+                }
+                //carousel.append(view[i].data.Sessions[s].html);
+            }
+        }
+    }
+    if(SeansBetween.flag){
+        SeansBetween.id = id;
+        SeansBetween.flag = false;
+    }
+    if(_.isEqual(SeansBetween.id,id))
+        return;
+    SeansBetween.id = id;
+    carousel.html("")
+    for(var ii in SeansBetween.id){
+        for(var ss in SeansBetween.id[ii]){
+            carousel.append(view[ii].data.Sessions[ss].html);
+        }
+    }
+    carousel.reload();
+}
+
 $("#seans").ionRangeSlider({
     type: "double",
     grid: true,
     from_shadow: true,
     to_shadow: true,
-    values:[
-        "19:30", "20:00", "20:30",
-        "21:00", "21:30", "22:00",
-        "22:30", "23:00", "23:30",
-        "0:00", "0:30", "1:00", "1:30"
-        ],
+    values:SeanseValues,
     onStart: function(){
         var now = new Date()
                 .toLocaleTimeString()
                 .slice(0,3) + "00";
         var result = $.inArray(now, this.values);
         this.from_min = result > 0 ? result : 0;
+    },
+    onChange: function(time){
+     SeansBetween.fromTime = time.from_value;
+     SeansBetween.toTime = time.to_value;
+     getFilms();
     }
     
 });
@@ -80,6 +145,7 @@ $("#day").ionRangeSlider({
             day -= maxDays;
             month++;
         }
+        SeansBetween.date = date.getFullYear() + "-" + (month+1) + "-" + day;
         return getDays()[num] + ' ' + day + ' ' + Month[month];
 
     },
@@ -98,6 +164,7 @@ $("#day").ionRangeSlider({
             });
             seans.reset();
         }
+        getFilms();
     }
       
     

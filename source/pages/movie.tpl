@@ -57,7 +57,7 @@
                   </tr>
                   <tr>
                     <td colspan=2 class="bi_trailer text-center">
-                      <iframe class="trailer" width="380" height="180" src="https://www.youtube.com/embed/{Video}?autohide=1&showinfo=0" frameborder="0" allowfullscreen></iframe>';
+                      <iframe class="trailer" width="380" height="180" src="https://www.youtube.com/embed/{Video}?autohide=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
                     </td>
                   </tr>
                 </tbody>

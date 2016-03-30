@@ -9,8 +9,9 @@ function LoadData(id){
     });
 }
 $.getJSON("data.json").done(function(data){
-    var tpl = $("<section>", {class:"details"}).load("pages/movie.tpl", function(){
-        CreateObject(data,tpl);
+    $.get( "pages/movie.tpl", function( file ) {
+          CreateObject(data,file);
+          initCarousel();
     });
     
 });
@@ -18,7 +19,7 @@ $.getJSON("data.json").done(function(data){
 function CreateObject(data, template){
     for(var i in data){
         view[data[i].MovieID] = {data:data[i]};
-        view[data[i].MovieID]['html'] = ReplaceWithTemplate(template.html(),{
+        view[data[i].MovieID]['html'] = ReplaceWithTemplate(template,{
             '{Title}': data[i].Title,
             '{MovieID}': data[i].MovieID,
             '{SessionStarts}': data[i].SessionStarts,
@@ -32,6 +33,11 @@ function CreateObject(data, template){
             '{About}': data[i].About,
             '{Video}': data[i].Video
         });
+        
+        for(var s in view[data[i].MovieID].data.Sessions){
+            view[data[i].MovieID].data.Sessions[s]['html'] = getSliderItem(data[i].MovieID, data[i].Title, view[data[i].MovieID].data.Sessions[s]);
+            view[data[i].MovieID].data.Sessions[s]['UTC'] = Date.parse(view[data[i].MovieID].data.Sessions[s].Session);
+        }
     
 }
     
