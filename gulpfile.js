@@ -55,7 +55,7 @@ gulp.task('cpy-dep-release', function () {
 
 
 //Clean Debug Folder
-gulp.task('cls-debug', function () {
+gulp.task('cls-debug', function (cb) {
     return gulp.src(dir.debug)
         .pipe(clean({
             force: true,
@@ -185,6 +185,16 @@ gulp.task('start', function () {
     gulp.watch(dir.src + dir.scripts.ts + '**/*.scss', ['cmp-ts-dd-debug', 'cmp-ts-debug']);
 });
 
-gulp.task('debug', ['cls-debug', 'cpy-dep-debug', 'cHtml-debug', 'cmp-ts-debug', 'cpm-scss-debug']);
-gulp.task('release', ['cls-release', 'cpy-dep-release', 'cHtml-release', 'cmp-ts-release', 'cpm-scss-release']);
+gulp.task('debug', ['cls-debug'], function(){
+    gulp.start('cpy-dep-debug');
+    gulp.start('cHtml-debug');
+    gulp.start('cmp-ts-debug');
+    gulp.start('cpm-scss-debug');
+});
+gulp.task('release', ['cls-release'], function(){
+    gulp.start('cpy-dep-release');
+    gulp.start('cHtml-release');
+    gulp.start('cmp-ts-release');
+    gulp.start('cpm-scss-release');
+});
 
