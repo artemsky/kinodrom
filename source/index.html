@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" type="text/css" />
     
     <!--Stylesheets-->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="scss/main.css">
     <link rel="stylesheet" href="../bower_components/ion.rangeslider/css/ion.rangeSlider.css" type="text/css" />
     <link rel="stylesheet" href="../bower_components/ion.rangeslider/css/ion.rangeSlider.skinFlatMy.css" type="text/css" />
     <link rel="stylesheet" href="../bower_components/fancyBox/source/jquery.fancybox.css" type="text/css" media="screen" />
@@ -324,30 +324,44 @@
     </div>
   </div>
 </div>
-    
-    <!--Jquery-->
-    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
-    <!--Lodash-->
-    <script type="text/javascript" src="../bower_components/lodash/dist/lodash.core.js"></script>
-    <!--Bootstrap-->
-    <!--<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>-->
+    <!-- build:js js/bootstrap3components.js -->
+    <!-- Bootstrap 3 Components  -->
     <script type="text/javascript" src="../bower_components/bootstrap/js/collapse.js"></script>
     <script type="text/javascript" src="../bower_components/bootstrap/js/dropdown.js"></script>
     <script type="text/javascript" src="../bower_components/bootstrap/js/modal.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js js/jquery.js -->
+    <!-- Jquery  -->
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js js/itemslide.js -->
     <!--ItemSlide-->
     <script type="text/javascript" src="../bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
     <script type="text/javascript" src="../bower_components/itemslide/src/itemslide.js"></script>
-    <script type="text/javascript" src="../bower_components/itemslide/src/slideout.js"></script>
+    <!--<script type="text/javascript" src="../bower_components/itemslide/src/slideout.js"></script>-->
+    <!-- endbuild -->
+
+    <!-- build:js js/rangeslider.js -->
     <!--RageSlider-->
     <script type="text/javascript" src="../bower_components/ion.rangeslider/js/ion.rangeSlider.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js js/fancybox.js -->
     <!--FancyBox-->
     <script type="text/javascript" src="../bower_components/fancyBox/source/jquery.fancybox.js"></script>
-    <!--App-->
+    <!-- endbuild -->
+
+    <!-- build:js js/app.js -->
+    <!--Application-->
     <script type="text/javascript" src="js/details.js"></script>
     <script type="text/javascript" src="js/slider.js"></script>
     <script type="text/javascript" src="js/rangeslider.js"></script>
     <script type="text/javascript" src="js/fancy.js"></script>
     <script type="text/javascript" src="js/tickets.js"></script>
     <script type="text/javascript" src="js/addmovie.js"></script>
+    <!-- endbuild -->
+
   </body>
 </html>

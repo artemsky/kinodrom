@@ -1,25 +1,33 @@
 {
-  "name": "kinodrom",
+  "name": "Kinodrom.kiev.ua",
   "version": "1.0.0",
-  "description": "some kino site",
+  "description": "Kinodrom cinema",
   "main": "index.html",
-  "dependencies": {
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/artemsky/kinodrom.git"
   },
+  "dependencies": {},
   "devDependencies": {
     "bower": "^1.7.7",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.0",
     "gulp-concat-css": "^2.2.0",
     "gulp-cssnano": "^2.1.1",
-    "gulp-html-replace": "^1.5.5",
+    "gulp-sass": "^2.2.0",
+    "gulp-shorthand": "^1.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.12.1",
     "gulp-uglify": "^1.5.3",
     "gulp-uncss": "^1.0.5",
-    "gulp-shorthand": "^1.1.0"
+    "gulp-useref": "^3.0.8",
+    "typings": "^0.7.11"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "getAll": "typings install && bower install"
   },
-  "author": "",
+  "author": "Mr.ArtemSky",
   "license": "ISC"
 }
