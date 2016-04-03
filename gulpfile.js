@@ -11,6 +11,7 @@ var gulp = require('gulp'),
     ts = require('gulp-typescript'),
     clean = require('gulp-clean'),
     sass = require('gulp-sass'),
+    tsProject = ts.createProject('tsconfig.json'),
 
     dir = {
         src: './source/',
@@ -83,23 +84,9 @@ gulp.task('cpm-scss-debug', function () {
 gulp.task('cmp-ts-debug', function () {
     return gulp.src('**/*.ts', {cwd: dir.src + dir.scripts.ts})
         .pipe(sourcemaps.init())
-        .pipe(ts({
-            allowJs: true,
-            target:'ES5',
-            noEmitOnError: true
-        }))
+        .pipe(ts(tsProject))
         .pipe(sourcemaps.write(dir.styles.maps))
         .pipe(gulp.dest(dir.debug + dir.scripts.js));
-});
-
-gulp.task('cmp-ts-dd-debug', function () {
-    return gulp.src('**/*.ts', {cwd: dir.src + dir.scripts.ts })
-        .pipe(ts({
-            allowJs: true,
-            target:'ES5',
-            declaration: true,
-            noExternalResolve: true
-        })).dts.pipe(gulp.dest(dir.src + dir.scripts.d))
 });
 
 
@@ -119,6 +106,12 @@ gulp.task('cls-release', function () {
         }));
 });
 
+gulp.task('compressVendors-release', function () {
+    return gulp.src('js/vendor/*.js', {cwd: dir.release})
+        .pipe(uglify())
+        .pipe(gulp.dest(dir.release));
+});
+
 gulp.task('cHtml-release', function () {
     return gulp.src('**/*.html', {cwd: dir.src})
         .pipe(useref())
@@ -128,12 +121,7 @@ gulp.task('cHtml-release', function () {
 //Compile TypeScript
 gulp.task('cmp-ts-release', function () {
     return gulp.src('**/*.ts', {cwd: dir.src + dir.scripts.ts})
-        .pipe(ts({
-            allowJs: true,
-            target:'ES5',
-            noEmitOnError: true
-        }))
-        .pipe(concat('app.js'))
+        .pipe(ts(tsProject))
         .pipe(uglify())
         .pipe(gulp.dest(dir.release + dir.scripts.js));
 });
@@ -180,9 +168,9 @@ gulp.task('cpm-scss-release', function () {
 
 
 gulp.task('start', function () {
-    console.log("Watching for chages...")
+    setTimeout(function(){console.log("Watching for chages...")},2000);
     gulp.watch(dir.src + dir.styles.scss + '**/*.scss', ['cpm-scss-debug']);
-    gulp.watch(dir.src + dir.scripts.ts + '**/*.scss', ['cmp-ts-dd-debug', 'cmp-ts-debug']);
+    gulp.watch(dir.src + dir.scripts.ts + '**/*.ts', ['cmp-ts-debug']);
 });
 
 gulp.task('debug', ['cls-debug'], function(){
