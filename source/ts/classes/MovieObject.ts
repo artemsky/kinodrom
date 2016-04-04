@@ -26,6 +26,7 @@ interface IMovieData {
 }
 class MovieObject {
     public Data:Object;
+    public onLoad: (obj:any) => void;
     constructor(data:string, template:string) {
         let MovieData = $.getJSON(data);
         let Template = $.get(template);
@@ -41,21 +42,28 @@ class MovieObject {
         return str;
     }
 
-    private GenerateSliderItem(MovieID, Title, Session) {
+    private GenerateSliderItem(MovieID, Title, Session):string{
         return `<li movie-id="${MovieID}">
                     <section class="poster">
                         <img src="movies/${MovieID}/poster.jpg" alt="${Title}" class="img-responsive">
                         <div class="info bgTitle text-center">
                             <div class="title text-left text-center">${Session.Hall}</div>
                             <div class="price text-left inline-block">${Session.Price}грн.</div>
-                            <div class="session text-right inline-block">${new Date(Session.Session).toLocaleTimeString().substring(0, 5)}</div>
+                            <div class="session text-right inline-block">${Session.Session.substring(11, 16)}</div>
                         </div>
                     </section>
                 </li>`;
     }
 
+    private ParseTime(str:string):number{
+        let datetime = str.split(" ");
+        let FromHour = 6;
+        let times = datetime[1].split(":");
+        let time = (parseInt(times[1], 10) + (parseInt(times[0], 10)* 60))*60;
+        return (Date.parse(datetime[0]+" 00:00")/1000|0) + (time < FromHour*3600 ? time + 86400 : time);
+    }
+
     private CreateObject(movieData, template:string) {
-        console.log(movieData);
         let data = movieData[0];
         let nData = {};
         for (let i = data.length; i--;) {
@@ -78,12 +86,19 @@ class MovieObject {
             let session:Session[] = nData[data[i].MovieID].Data.Sessions;
             for (let s = session.length; s--;) {
                 session[s]['HTML'] = this.GenerateSliderItem(data[i].MovieID, data[i].Title, session[s]);
-                session[s]['Unix'] = Date.parse(session[s].Session);
+                session[s]['Unix'] = this.ParseTime(session[s].Session);
+                session[s]['HallID'] = (() => {
+                    switch(session[s].Hall){
+                        case "Евробазар": return 1;
+                        case "Акура Центр": return 2;
+                    }
+                })();
             }
 
         }
 
         this.Data = nData;
+        this.onLoad(this.Data);
     }
 
 }

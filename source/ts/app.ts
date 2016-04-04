@@ -4,8 +4,10 @@
 /// <reference path="classes/DetailedInfo.ts" />
 
     let Movie = new MovieObject(Api.Url.Get.Session("2016-01-01","2016-05-05"),Api.Url.Template.Movie);
-    let F = new DetailedInfo(Movie.Data);
-    F.Init();
+    let Details = new DetailedInfo();
+    Movie.onLoad = () => {
+        Details.Init(Movie.Data);
+    };
 
 
 

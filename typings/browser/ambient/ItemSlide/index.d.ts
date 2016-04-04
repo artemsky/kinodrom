@@ -3,8 +3,8 @@ interface JQuery {
     itemslide(options: itemslideOptions): JQuery;
     getActiveIndex(): number;
     getCurrentPos(): number;
-    next(): void;
-    previous(): void;
+    nextSlide(): void;
+    prevSlide(): void;
     gotoSlide(i: number): void;
     reload(): void;
     addSlide(data:string): void;

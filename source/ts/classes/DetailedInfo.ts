@@ -13,7 +13,7 @@ class DetailedInfo{
     private xOld;
     private xNew;
     private SessionsUnix:Array<number>;
-
+    public Data:Object;
     private MonthLocale = [
     "Января", "Февраля", "Марта", "Апреля", "Мая", "Июня",
     "Июля", "Августа", "Сентября", "Октября", "Ноября", "Декабря"];
@@ -22,7 +22,7 @@ class DetailedInfo{
         "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30",
         "23:00", "23:30", "0:00", "0:30", "1:00", "1:30"];
 
-    constructor(public Data:Object,
+    constructor(public Hall:JQuery = $(".hall"),
                 public Info:JQuery = $(".details"),
                 public Slider:JQuery = $("#scrolling ul"),
                 filterTime:JQuery = $("#seans"),
@@ -31,7 +31,8 @@ class DetailedInfo{
         this.Filter["Day"] = filterDay;
     }
 
-    Init(){
+    Init(Data:Object){
+        this.Data = Data;
         //Unix Time Prototype
         Date.prototype.getUnixTime = function() { return this.getTime()/1000|0 };
 
@@ -43,7 +44,7 @@ class DetailedInfo{
          * Init Filters
          ********************************/
         let Now = new Date();
-        let NowUnix = Now.getUnixTime() - Now.getMinutes()*60 - Now.getSeconds();
+        let NowUnix = Now.getUnixTime() - Now.getHours()*3600 - Now.getMinutes()*60 - Now.getSeconds();
         let D = Now.getDate();
         let M = Now.getMonth();
         let Y = Now.getFullYear();
@@ -58,8 +59,10 @@ class DetailedInfo{
         let TimeResult = this.CalculateDateRange(Selected, NowUnix);
         this.FindSessions(TimeResult.From, TimeResult.To);
 
-        //Init DayFilter
+
         $(()=> {
+
+            //Init DayFilter
             this.Filter.Day.ionRangeSlider({
                 type: "single",
                 grid: true,
@@ -71,8 +74,13 @@ class DetailedInfo{
                         return `${FirstDay[num]} ${D + num - MaxDays} ${this.MonthLocale[M + 1]}`;
                     return `${FirstDay[num]} ${D + num} ${this.MonthLocale[M]}`;
                 },
-                onChange: function (obj) {
-
+                onChange: (obj) => {
+                    Selected.Day = obj.from;
+                    TimeResult = this.CalculateDateRange(Selected, NowUnix);
+                    this.FindSessions(TimeResult.From, TimeResult.To);
+                },
+                onFinish: () =>{
+                    this.ShowRange(TimeResult.From, TimeResult.To);
                 }
             });
 
@@ -88,22 +96,37 @@ class DetailedInfo{
                             .slice(0, 3) + "00";
                     let result = this.SessionsLocale.indexOf(CurrentTime);
                     obj.from = result > 0 ? result : 0;
+                },
+                onChange: (obj) => {
+                    Selected.From = obj.from;
+                    Selected.To = obj.to;
+                    TimeResult = this.CalculateDateRange(Selected, NowUnix);
+                    this.FindSessions(TimeResult.From, TimeResult.To);
+                },
+                onFinish: () =>{
+                    this.ShowRange(TimeResult.From, TimeResult.To);
                 }
-                //onChange: function(time){
-                //    SeansBetween.fromTime = time.from_value;
-                //    SeansBetween.toTime = time.to_value;
-                //    getFilms();
-                //}
+
 
             });
 
             //Init SessionSlider
+            this.ShowRange(TimeResult.From, TimeResult.To);
             this.Slider.itemslide({
                 duration: 0,
                 disable_autowidth: true
             });
+            $(window).resize(() =>{
+                this.Slider.reload();
+            });
 
-            this.ShowRange(TimeResult.From, TimeResult.To);
+            //Init Hall Filter
+            this.Hall.find("input").change(() =>{
+                this.FindSessions(TimeResult.From, TimeResult.To);
+                this.ShowRange(TimeResult.From, TimeResult.To);
+            });
+
+
         });
     }
 
@@ -126,9 +149,12 @@ class DetailedInfo{
 
     ParseTime(obj:Array<string>):Array<number>{
         let result:Array<number> = [];
+        //Till this hour parsing like next day (24H)
+        let FromHour = 6;
         for(let i = 0; i < obj.length; i++){
             let times = obj[i].split(":");
-            result.push((parseInt(times[1], 10) + (parseInt(times[0], 10)* 60))*60);
+            let time = (parseInt(times[1], 10) + (parseInt(times[0], 10)* 60))*60;
+            result.push(time < FromHour*3600 ? time + 86400 : time);
         }
         return result;
 
@@ -152,20 +178,30 @@ class DetailedInfo{
     }
 
     ShowRange(from:number, to:number):void{
-        if(!(typeof(this.xNew) === "object"))
-            this.FindSessions.call(this,from,to);
 
-        if(this.Equals(this.xNew,this.xOld)) return;
+        if(!(typeof(this.xNew) === "object"))
+            this.FindSessions.call(from,to);
+
+        if(this.Equals(this.xNew,this.xOld)){
+            return;
+        }else if(Object.keys(this.xNew).length === 0){
+            this.xOld = JSON.parse(JSON.stringify(this.xNew))
+            this.Slider.html("<li>В данный период нет показов</li>").reload();
+            return;
+        }
 
         let List = this.CreateList();
-        console.log(List)
-        this.Slider.html(List);
-        //    .reload();
-        console.log(this.xOld);
-        console.log(this.xNew);
-        //this.Slider.gotoSlide(Math.round(List.length/2));
+        if(List.length === 0)
+            this.Slider.html("<li>В данный период нет показов</li>");
+        else
+            this.Slider.html(List);
 
-        this.xOld = Object.create(this.xNew);
+        if(!(Object.keys(this.Slider.data()).length === 0))
+            this.Slider.reload();
+
+        this.Slider.gotoSlide(Math.round(List.length/2));
+
+        this.xOld = JSON.parse(JSON.stringify(this.xNew));
     }
 
     private CreateList():string{
@@ -173,20 +209,24 @@ class DetailedInfo{
         let el = this.xNew;
         for(let i in el){
             for(let j = el[i].length; j--;){
-                List.concat(this.Data[i].Data.Sessions[el[i][j]].HTML)
+                List += this.Data[i].Data.Sessions[el[i][j]].HTML;
             }
         }
         return List;
     }
 
     private FindSessions(from:number, to:number):void{
+        let Hall = +this.Hall.find(":checked").val();
         let result:Object = {};
         for(let i in this.Data){
-            for(let j = this.Data[i].Data.Sessions.Unix.length; j--;){
+            for(let j = this.Data[i].Data.Sessions.length; j--;){
                 let Unix = this.Data[i].Data.Sessions[j].Unix;
+                let HallID = this.Data[i].Data.Sessions[j].HallID;
                 if(Unix <= to && Unix >= from){
-                    result[i] = [];
-                    result[i].push(j);
+                    if(typeof(result[i]) === "undefined")
+                        result[i] = [];
+                    if(Hall === 0 || HallID === Hall)
+                        result[i].push(j);
                 }
             }
         }
