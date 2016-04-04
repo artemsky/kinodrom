@@ -116,9 +116,18 @@ class DetailedInfo{
                 duration: 0,
                 disable_autowidth: true
             });
+
             $(window).resize(() =>{
                 this.Slider.reload();
             });
+
+            //Init SessionSlider Info Load
+            this.Slider.on("changeActiveIndex", (e) => {
+                let id = $(e.target).children().eq(this.Slider.getActiveIndex()).attr("movie-id");
+                this.LoadInfo(id);
+                //TicketsReset();
+            });
+            this.Slider.gotoSlide(Math.round(this.Slider.children().length/2));
 
             //Init Hall Filter
             this.Hall.find("input").change(() =>{
@@ -165,15 +174,6 @@ class DetailedInfo{
         this.Info.animate({opacity: 0.01}, 200, () => {
             this.Info.html(this.Data[id].html);
             this.Info.animate({opacity: 1}, 200);
-        });
-    }
-
-    AttachEvents(){
-        this.Slider.on("changeActiveIndex", (e) => {
-            let id = $(e.target).children().eq(this.Slider.getActiveIndex()).attr("movie-id");
-            this.LoadInfo(id);
-            //TicketsReset();
-
         });
     }
 
