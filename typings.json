@@ -5,9 +5,11 @@
   "exclude": [
     "typings/main.d.ts",
     "typings/main",
-    "node_modules"
+    "node_modules",
+    "bower_componets"
   ],
   "ambientDependencies": {
-    "jquery": "registry:dt/jquery#1.10.0+20160316155526"
+    "jquery": "registry:dt/jquery#1.10.0+20160316155526",
+    "fancybox": "registry:dt/fancybox#2.1.0+20160316155526"
   }
 }

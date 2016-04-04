@@ -1,4 +1,3 @@
-/// <reference path="../../../typings/browser.d.ts" />
 interface IFilter{
     Day?:JQuery
     Time?:JQuery
@@ -133,6 +132,11 @@ class DetailedInfo{
             this.Hall.find("input").change(() =>{
                 this.FindSessions(TimeResult.From, TimeResult.To);
                 this.ShowRange(TimeResult.From, TimeResult.To);
+            });
+
+            //FancyBox
+            $(document).ready(function() {
+                $(".fancybox").fancybox();
             });
 
 
