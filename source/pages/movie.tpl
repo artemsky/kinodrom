@@ -11,7 +11,7 @@
           <img src="movies/{MovieID}/poster.jpg" alt="{Title}" class="img-responsive center-block">
           <div class="row">
             <div class="col-lg-12 text-center">
-              <button type="button" class="btn btn-danger" movie-id="{MovieID}" data-toggle="modal" data-target="#tiketsModal">Купить Билет</button>
+              <button type="button" class="btn btn-danger" movie-id="{MovieID}">Купить Билет</button>
             </div>
           </div>
         </div>

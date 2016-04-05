@@ -1,26 +1,26 @@
 module Api{
     export let Url = {
         Add: {
-            Ticket: "https://kndr-prokopenko.c9users.io/add/ticket",
-            Movie: "https://kndr-prokopenko.c9users.io/add/movie",
-            Session: "https://kndr-prokopenko.c9users.io/add/seance"
+            Ticket: "https://kndr-prokopenko.c9users.io/ajax/add/ticket",
+            Movie: "https://kndr-prokopenko.c9users.io/ajax/add/movie",
+            Session: "https://kndr-prokopenko.c9users.io/ajax/add/seance"
         },
         Get: {
             Seats: (id) => {
-                return `https://kndr-prokopenko.c9users.io/seances/${id}`
+                return `https://kndr-prokopenko.c9users.io/ajax/seances/${id}`
             },
             Session: (from, to) => {
-                //return `https://kndr-prokopenko.c9users.io/seances/${from}/${to}`
+                //return `https://kndr-prokopenko.c9users.io/ajax/seances/${from}/${to}`
                 return `data.json`
             },
             AllHalls: () => {
-                return `https://kndr-prokopenko.c9users.io/halls/`
+                return `https://kndr-prokopenko.c9users.io/ajax/halls`
             },
             Hall: (id) => {
-                return `https://kndr-prokopenko.c9users.io/halls/${id}`
+                return `https://kndr-prokopenko.c9users.io/ajax/halls/${id}`
             },
             MoviesList: () => {
-                return "https://kndr-prokopenko.c9users.io/movies"
+                return "https://kndr-prokopenko.c9users.io/ajax/movies"
             }
         },
         Template: {

@@ -1,316 +1,318 @@
 {
-    "prices":{
-        "lightPrice": 100,
-        "heavyPrice": 120
-    },
-    "seats":[
-        {
-            "row": 1,
-            "seat": 1,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 1,
-            "seat": 2,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 1,
-            "seat": 3,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 1,
-            "seat": 4,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 1,
-            "seat": 5,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 1,
-            "seat": 6,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 1,
-            "seat": 7,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 1,
-            "seat": 8,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 2,
-            "seat": 1,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 2,
-            "seat": 2,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 2,
-            "seat": 3,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 2,
-            "seat": 4,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 2,
-            "seat": 5,
-            "type": "light",
-            "price": 100,
-            "isFree": false
-        },
-        {
-            "row": 2,
-            "seat": 6,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 2,
-            "seat": 7,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 2,
-            "seat": 8,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 2,
-            "seat": 9,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 2,
-            "seat": 10,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 3,
-            "seat": 1,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 3,
-            "seat": 2,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 3,
-            "seat": 3,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 3,
-            "seat": 4,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 3,
-            "seat": 5,
-            "type": "light",
-            "price": 100,
-            "isFree": false
-        },
-        {
-            "row": 3,
-            "seat": 6,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 3,
-            "seat": 7,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 3,
-            "seat": 8,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 3,
-            "seat": 9,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 3,
-            "seat": 10,
-            "type": "light",
-            "price": 100,
-            "isFree": true
-        },
-        {
-            "row": 3,
-            "seat": 11,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 3,
-            "seat": 12,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 4,
-            "seat": 1,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 4,
-            "seat": 2,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 4,
-            "seat": 3,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 4,
-            "seat": 4,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 4,
-            "seat": 5,
-            "type": "heavy",
-            "price": 120,
-            "isFree": false
-        },
-        {
-            "row": 4,
-            "seat": 6,
-            "type": "heavy",
-            "price": 120,
-            "isFree": false
-        },
-        {
-            "row": 4,
-            "seat": 7,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 4,
-            "seat": 8,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 4,
-            "seat": 9,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 4,
-            "seat": 10,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 4,
-            "seat": 11,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 4,
-            "seat": 12,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 4,
-            "seat": 13,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        },
-        {
-            "row": 4,
-            "seat": 14,
-            "type": "heavy",
-            "price": 120,
-            "isFree": true
-        }
-    ]
+    prices: [{
+        price: 120,
+        name: "light"
+    }, {
+        price: 144,
+        name: "heavy"
+    }],
+    seats: [{
+        price: 120,
+        row: 1,
+        seat: 1,
+        index: 1,
+        type: "light",
+        isFree: true
+    }, {
+        price: 120,
+        row: 1,
+        seat: 2,
+        index: 2,
+        type: "light",
+        isFree: true
+    }, {
+        price: 120,
+        row: 1,
+        seat: 3,
+        index: 3,
+        type: "light",
+        isFree: true
+    }, {
+        price: 120,
+        row: 1,
+        seat: 4,
+        index: 4,
+        type: "light",
+        isFree: false
+    }, {
+        price: 120,
+        row: 1,
+        seat: 5,
+        index: 5,
+        type: "light",
+        isFree: false
+    }, {
+        price: 120,
+        row: 1,
+        seat: 6,
+        index: 6,
+        type: "light",
+        isFree: false
+    }, {
+        price: 120,
+        row: 1,
+        seat: 7,
+        index: 7,
+        type: "light",
+        isFree: true
+    }, {
+        price: 120,
+        row: 1,
+        seat: 8,
+        index: 8,
+        type: "light",
+        isFree: true
+    }, {
+        price: 144,
+        row: 2,
+        seat: 1,
+        index: 9,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 120,
+        row: 2,
+        seat: 2,
+        index: 10,
+        type: "light",
+        isFree: true
+    }, {
+        price: 120,
+        row: 2,
+        seat: 3,
+        index: 11,
+        type: "light",
+        isFree: true
+    }, {
+        price: 120,
+        row: 2,
+        seat: 4,
+        index: 12,
+        type: "light",
+        isFree: false
+    }, {
+        price: 120,
+        row: 2,
+        seat: 5,
+        index: 13,
+        type: "light",
+        isFree: false
+    }, {
+        price: 120,
+        row: 2,
+        seat: 6,
+        index: 14,
+        type: "light",
+        isFree: false
+    }, {
+        price: 120,
+        row: 2,
+        seat: 7,
+        index: 15,
+        type: "light",
+        isFree: true
+    }, {
+        price: 120,
+        row: 2,
+        seat: 8,
+        index: 16,
+        type: "light",
+        isFree: true
+    }, {
+        price: 120,
+        row: 2,
+        seat: 9,
+        index: 17,
+        type: "light",
+        isFree: true
+    }, {
+        price: 144,
+        row: 2,
+        seat: 10,
+        index: 18,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 3,
+        seat: 1,
+        index: 19,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 3,
+        seat: 2,
+        index: 20,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 120,
+        row: 3,
+        seat: 3,
+        index: 21,
+        type: "light",
+        isFree: true
+    }, {
+        price: 120,
+        row: 3,
+        seat: 4,
+        index: 22,
+        type: "light",
+        isFree: false
+    }, {
+        price: 120,
+        row: 3,
+        seat: 5,
+        index: 23,
+        type: "light",
+        isFree: false
+    }, {
+        price: 120,
+        row: 3,
+        seat: 6,
+        index: 24,
+        type: "light",
+        isFree: false
+    }, {
+        price: 120,
+        row: 3,
+        seat: 7,
+        index: 25,
+        type: "light",
+        isFree: true
+    }, {
+        price: 120,
+        row: 3,
+        seat: 8,
+        index: 26,
+        type: "light",
+        isFree: true
+    }, {
+        price: 120,
+        row: 3,
+        seat: 9,
+        index: 27,
+        type: "light",
+        isFree: true
+    }, {
+        price: 120,
+        row: 3,
+        seat: 10,
+        index: 28,
+        type: "light",
+        isFree: true
+    }, {
+        price: 144,
+        row: 3,
+        seat: 11,
+        index: 29,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 3,
+        seat: 12,
+        index: 30,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 4,
+        seat: 1,
+        index: 31,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 4,
+        seat: 2,
+        index: 32,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 4,
+        seat: 3,
+        index: 33,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 4,
+        seat: 4,
+        index: 34,
+        type: "heavy",
+        isFree: false
+    }, {
+        price: 144,
+        row: 4,
+        seat: 5,
+        index: 35,
+        type: "heavy",
+        isFree: false
+    }, {
+        price: 144,
+        row: 4,
+        seat: 6,
+        index: 36,
+        type: "heavy",
+        isFree: false
+    }, {
+        price: 144,
+        row: 4,
+        seat: 7,
+        index: 37,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 4,
+        seat: 8,
+        index: 38,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 4,
+        seat: 9,
+        index: 39,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 4,
+        seat: 10,
+        index: 40,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 4,
+        seat: 11,
+        index: 41,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 4,
+        seat: 12,
+        index: 42,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 4,
+        seat: 13,
+        index: 43,
+        type: "heavy",
+        isFree: true
+    }, {
+        price: 144,
+        row: 4,
+        seat: 15,
+        index: 44,
+        type: "heavy",
+        isFree: true
+    }]
 }
