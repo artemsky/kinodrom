@@ -24,8 +24,8 @@
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="nav navbar-nav types">
-                                        <li class="cheap"><b class="lightPrice">100 грн</b> (легковой)</li>
-                                        <li class="exp"><b class="heavyPrice">120 грн</b> (внедорожник)</li>
+                                        <li class="cheap"><b class="lightPrice"></b> (легковой)</li>
+                                        <li class="exp"><b class="heavyPrice"></b> (внедорожник)</li>
                                         <li class="sold"><b>Проданы</b></li>
                                     </ul>
                                 </div>

@@ -12,7 +12,6 @@
 
     Movie.onLoad = () => {
         Details.Init(Movie.Data);
-        Ticket.Init();
     };
 
 

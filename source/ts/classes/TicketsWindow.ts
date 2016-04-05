@@ -1,7 +1,6 @@
 class TicketsWindow{
     private Template:JQuery;
     private Parent:JQuery;
-    private Button:JQuery;
 
     public Field:JQuery;
     public Poster:JQuery;
@@ -13,17 +12,18 @@ class TicketsWindow{
     public Checkout:JQuery;
 
     constructor(public template:string){
-        this.Parent = $(".details");
-        this.Button = this.Parent.find("button");
         $.get(template).done((data) =>{
             this.Template = $(data);
+            this.Init();
         });
+
     }
-    Init(){
+    private Init(){
+        this.Parent = $(".details");
         //Template name reduction
         let T = this.Template;
         //Init onClick button
-        this.Parent.delegate("button", "click", this.Draw);
+        this.Parent.delegate("button", "click", this.Draw.bind(this));
         //Attach links to Template object
         this.Field = T.find(".parking .cars");
         this.Poster = T.find(".posterblock");
@@ -35,24 +35,25 @@ class TicketsWindow{
         this.Checkout = T.find(".checkout");
     }
     
-    Draw(){
-        let MovieID = this.Button.attr("movie-id");
-        let SessionID = this.Button.attr("session-id");
+    protected Draw(){
+        let Button = this.Parent.find("button");
+        let MovieID = Button.attr("movie-id");
+        let SessionID = Button.attr("session-id");
         let Data = Movie.Data[MovieID].Data;
-        this.Poster.append(`<img src='movies/${MovieID}/poster.jpg' class='poster' />`);
+        this.Poster.html(`<img src='movies/${MovieID}/poster.jpg' class='poster' />`);
         this.Title.text(Data.Title);
-        this.Session.text(new Date(Data.Sessions[SessionID].Unix*1000).toLocaleString().substring(0,16))
+        let Time = new Date(Data.Sessions[SessionID].Unix*1000).toLocaleString();
+        this.Session.text(Time.substring(0,Time.length-3));
         this.Hall.text(Data.Sessions[SessionID].Hall);
         //Get Seats
-        $.getJSON("seats.json").done((data) =>{
-            this.LowPrice.text(`${data.prices.lightPrice} грн.`);
-            this.HighPrice.text(`${data.prices.heavyPrice} грн.`);
+        $.getJSON(Api.Url.Get.Seats(MovieID)).done((data) =>{
+            this.LowPrice.text(`${data.prices[0].price} грн.`);
+            this.HighPrice.text(`${data.prices[1].price} грн.`);
 
             let Park = this.GeneretePark(data.seats);
             this.Field.html(Park);
-
-
-            this.Checkout.text();
+            this.Template.modal("show");
+            //this.Checkout.text();
             });
 
 

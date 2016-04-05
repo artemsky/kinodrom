@@ -122,8 +122,11 @@ class DetailedInfo{
 
             //Init SessionSlider Info Load
             this.Slider.on("changeActiveIndex", (e) => {
-                let id = $(e.target).children().eq(this.Slider.getActiveIndex()).attr("movie-id");
-                this.LoadInfo(id);
+                let curSel = $(e.target).children().eq(this.Slider.getActiveIndex());
+                let MID = curSel.attr("movie-id");
+                let SID = curSel.attr("session-id");
+
+                this.LoadInfo(MID, SID);
                 //TicketsReset();
             });
             this.Slider.gotoSlide(Math.round(this.Slider.children().length/2));
@@ -173,10 +176,11 @@ class DetailedInfo{
 
     }
 
-    LoadInfo(id:string){
+    LoadInfo(id:string|number, sid:string|number){
         this.Info.stop(true,true);
         this.Info.animate({opacity: 0.01}, 200, () => {
             this.Info.html(this.Data[id].html);
+            this.Info.find("button").attr("session-id", sid);
             this.Info.animate({opacity: 1}, 200);
         });
     }
