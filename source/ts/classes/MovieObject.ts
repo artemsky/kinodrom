@@ -42,8 +42,8 @@ class MovieObject {
         return str;
     }
 
-    private GenerateSliderItem(MovieID, Title, Session):string{
-        return `<li movie-id="${MovieID}">
+    private GenerateSliderItem(MovieID, Title, Session, SessionID):string{
+        return `<li movie-id="${MovieID}" session-id="${SessionID}">
                     <section class="poster">
                         <img src="movies/${MovieID}/poster.jpg" alt="${Title}" class="img-responsive">
                         <div class="info bgTitle text-center">
@@ -85,7 +85,7 @@ class MovieObject {
 
             let session:Session[] = nData[data[i].MovieID].Data.Sessions;
             for (let s = session.length; s--;) {
-                session[s]['HTML'] = this.GenerateSliderItem(data[i].MovieID, data[i].Title, session[s]);
+                session[s]['HTML'] = this.GenerateSliderItem(data[i].MovieID, data[i].Title, session[s], s);
                 session[s]['Unix'] = this.ParseTime(session[s].Session);
                 session[s]['HallID'] = (() => {
                     switch(session[s].Hall){

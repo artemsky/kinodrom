@@ -24,7 +24,8 @@ module Api{
             }
         },
         Template: {
-            Movie: "pages/movie.tpl"
+            Movie: "pages/movie.tpl",
+            Ticket: "pages/tickets.tpl"
         }
     };
 }
