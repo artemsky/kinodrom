@@ -110,11 +110,13 @@ class DetailedInfo{
             });
 
             //Init SessionSlider
+
             this.ShowRange(TimeResult.From, TimeResult.To);
             this.Slider.itemslide({
                 duration: 0,
                 disable_autowidth: true
             });
+
 
             $(window).resize(() =>{
                 this.Slider.reload();
@@ -123,8 +125,11 @@ class DetailedInfo{
             //Init SessionSlider Info Load
             this.Slider.on("changeActiveIndex", (e) => {
                 let curSel = $(e.target).children().eq(this.Slider.getActiveIndex());
+
                 let MID = curSel.attr("movie-id");
                 let SID = curSel.attr("session-id");
+
+                if(MID == null || SID == null) return;
 
                 this.LoadInfo(MID, SID);
                 //TicketsReset();
@@ -192,9 +197,11 @@ class DetailedInfo{
 
         if(this.Equals(this.xNew,this.xOld)){
             return;
-        }else if(Object.keys(this.xNew).length === 0){
+        }else if($.isEmptyObject(this.xNew)){
             this.xOld = JSON.parse(JSON.stringify(this.xNew))
-            this.Slider.html("<li>В данный период нет показов</li>").reload();
+            this.Slider.html("<li>В данный период нет показов</li>");
+            if(!$.isEmptyObject(this.Slider.data()))
+                this.Slider.reload();
             return;
         }
 
@@ -203,8 +210,7 @@ class DetailedInfo{
             this.Slider.html("<li>В данный период нет показов</li>");
         else
             this.Slider.html(List);
-
-        if(!(Object.keys(this.Slider.data()).length === 0))
+        if(!$.isEmptyObject(this.Slider.data()))
             this.Slider.reload();
 
         this.Slider.gotoSlide(Math.round(List.length/2));

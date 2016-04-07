@@ -1,5 +1,13 @@
+interface ITicket{
+    col:number
+    row:number
+    type:string
+    price: number
+    getTicket(): ()=> (string)
+}
+
 class TicketsWindow{
-    private Template:JQuery;
+    protected Template:JQuery;
     private Parent:JQuery;
 
     public Field:JQuery;
@@ -10,6 +18,12 @@ class TicketsWindow{
     public LowPrice:JQuery;
     public HighPrice:JQuery;
     public Checkout:JQuery;
+    protected Prices:number[];
+    protected Seats:Object[];
+
+    TicketsList:ITicket[];
+    Area:JQuery;
+    private Order:JQuery;
 
     constructor(public template:string){
         $.get(template).done((data) =>{
@@ -19,23 +33,38 @@ class TicketsWindow{
 
     }
     private Init(){
-        this.Parent = $(".details");
-        //Template name reduction
-        let T = this.Template;
+        let $t = this;
+
+        let T = $t.Template;
+        $t.TicketsList = [];
+
+        $t.Parent = $(".details");
         //Init onClick button
-        this.Parent.delegate("button", "click", this.Draw.bind(this));
+        $t.Parent.delegate("button", "click", this.Draw.bind(this));
         //Attach links to Template object
-        this.Field = T.find(".parking .cars");
-        this.Poster = T.find(".posterblock");
-        this.Title = T.find(".title");
-        this.Session = T.find(".session");
-        this.Hall = T.find(".place");
-        this.LowPrice = T.find(".lightPrice");
-        this.HighPrice = T.find(".heavyPrice");
-        this.Checkout = T.find(".checkout");
+        $t.Field = T.find(".parking .cars");
+        $t.Poster = T.find(".posterblock");
+        $t.Title = T.find(".title");
+        $t.Session = T.find(".session");
+        $t.Hall = T.find(".place");
+        $t.LowPrice = T.find(".lightPrice");
+        $t.HighPrice = T.find(".heavyPrice");
+
+
+
+        $t.Area = T.find("#tickets");
+        $t.Order = T.find(".order");
+        $t.Checkout = T.find(".checkout");
+
+        $t.Area.delegate(".car", "click", function(){
+            $t.Selection.call(this, $t);
+        });
+
     }
     
     protected Draw(){
+        this.TicketsReset();
+
         let Button = this.Parent.find("button");
         let MovieID = Button.attr("movie-id");
         let SessionID = Button.attr("session-id");
@@ -47,16 +76,21 @@ class TicketsWindow{
         this.Hall.text(Data.Sessions[SessionID].Hall);
         //Get Seats
         $.getJSON(Api.Url.Get.Seats(MovieID)).done((data) =>{
+            this.Seats = data.seats;
+            this.Prices = data.prices;
             this.LowPrice.text(`${data.prices[0].price} грн.`);
             this.HighPrice.text(`${data.prices[1].price} грн.`);
 
             let Park = this.GeneretePark(data.seats);
             this.Field.html(Park);
             this.Template.modal("show");
-            //this.Checkout.text();
             });
+    }
 
-
+    private TicketsReset(){
+        this.TicketsList = [];
+        this.Order.hide();
+        this.Checkout.html("");
     }
 
     private GeneretePark(obj){
@@ -75,10 +109,83 @@ class TicketsWindow{
 
     private GenerateSeat(obj){
         let cls = obj.type != "light" ? " exp" : "";
-        let sold = obj.isFree ? "" : " sold nohover";
+        let sold = obj.isFree ? "" : "sold nohover ";
         if(!obj.isFree) cls = '';
-        return '<div class="car'+ cls + sold +'"></div>';
+        return `<div class="car ${sold + cls}" index="${obj.index}"></div>`;
     }
+
+    Selection($parent){
+        let i = $(this).attr("index");
+        let Type = $parent.Seats[i].type === "light" ? true : false;
+
+        var ticket = {
+            type: Type ? "Легковик" : "Внедорожник",
+            price: Type ? $parent.Prices[0].price : $parent.Prices[1].price,
+            row: $(this).parent().index()+1,
+            col: $(this).index()+1,
+            getTicket: function(){
+                var $this = this;
+                return `<div class="ticket-container">
+                            <div class="ticket">
+                            <div class="name">
+                                <h6>Тип:</h6>
+                                <h6>Ряд:</h6>
+                                <h6>Место:</h6>
+                                <h6>Цена:</h6>
+                            </div>
+                            <div class="type">
+                                <h6>${$this.type}</h6>
+                                <h6>${$this.row}</h6>
+                                <h6>${$this.col}</h6>
+                                <h6>${$this.price}</h6>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+
+        };
+
+        if($(this).hasClass("selected")){
+            $(this).removeClass("selected");
+            if($parent.TicketsList.length == 1) $parent.TicketsList = [];
+            else{
+                for(let i in $parent.TicketsList){
+                    if($parent.TicketsList[i].row == ticket.row && $parent.TicketsList[i].col == ticket.col){
+                        $parent.TicketsList.splice(i,1);
+                        break;
+                    }
+                }
+            }
+
+        }
+        else{
+            $(this).addClass("selected");
+            $parent.TicketsList.push(ticket);
+        }
+
+
+        $parent.PrintTickets();
+
+    }
+
+    PrintTickets(){
+        if(this.TicketsList.length == 0){
+            this.Checkout.html("");
+            this.Order.hide();
+            return;
+        }
+        this.Order.show();
+        let total = 0;
+        this.Checkout.html("");
+        this.TicketsList.forEach(tiket => {
+            this.Checkout.append(tiket.getTicket());
+            total += tiket.price;
+            this.Checkout.append("<span>+</span>");
+        });
+
+        this.Checkout.find("span:last").html('<span>='+total+' грн.</span>').after('<div class="col-md-12"><button type="button" class="btn btn-danger">Сделать заказ</button></div>');
+    }
+
 
 
 }

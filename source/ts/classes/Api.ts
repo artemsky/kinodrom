@@ -7,6 +7,7 @@ module Api{
         },
         Get: {
             Seats: (id) => {
+                //return `https://kndr-prokopenko.c9users.io/ajax/seances/${id}`
                 return `https://kndr-prokopenko.c9users.io/ajax/seances/${id}`
             },
             Session: (from, to) => {
