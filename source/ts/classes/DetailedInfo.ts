@@ -119,7 +119,12 @@ class DetailedInfo{
 
 
             $(window).resize(() =>{
-                this.Slider.reload();
+                let width = 0;
+                this.Slider.find("li").each(function(){
+                    width+= $(this).outerWidth();
+                });
+                this.Slider.css("transform", `translate3d(${($(window).width() - width - this.Slider.find(".itemslide-active").outerWidth())/2}px, 0px, 0px)`);
+
             });
 
             //Init SessionSlider Info Load
@@ -132,7 +137,6 @@ class DetailedInfo{
                 if(MID == null || SID == null) return;
 
                 this.LoadInfo(MID, SID);
-                //TicketsReset();
             });
             this.Slider.gotoSlide(Math.round(this.Slider.children().length/2));
 
