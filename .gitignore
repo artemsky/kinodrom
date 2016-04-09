@@ -1,9 +1,9 @@
 /bower_components
-/.c9
 /node_modules
 /.idea
 /typings/main
 /typings/main.d.ts
 /typings/browser.d.ts
 /typings/browser
-/debug
+/.c9
+/.git

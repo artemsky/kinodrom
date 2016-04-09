@@ -15,8 +15,8 @@ var gulp = require('gulp'),
 
     dir = {
         src: './source/',
-        debug: './debug/',
-        release: './release/',
+        debug: '../www/',
+        release: '../www/',
         styles: {
             css: 'css/',
             scss: 'scss/',
@@ -34,7 +34,9 @@ var gulp = require('gulp'),
             'movies/**/*',
             'images/**/*',
             'pages/**/*',
-            '*.!(html)'
+			'index.php',
+			'.htaccess',
+            '*.!(twig)'
         ]
     };
 
@@ -66,7 +68,7 @@ gulp.task('cls-debug', function (cb) {
 
 //Replace blocks of html code with builds
 gulp.task('cHtml-debug', function () {
-    return gulp.src('**/*.html', {cwd: dir.src})
+    return gulp.src('**/*.html.twig', {cwd: dir.src})
         .pipe(useref())
         .pipe(gulp.dest(dir.debug));
 });
