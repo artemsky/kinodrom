@@ -1,4 +1,4 @@
-/// <reference path="../../typings/index.d.ts" />
+/// <reference path="../../../typings/index.d.ts" />
 /// <reference path="AjaxLoader.ts" />
 /// <reference path="classes/MovieObject.ts" />
 /// <reference path="classes/Api.ts" />
